@@ -30,7 +30,7 @@ A **simple, reliable WebSocket echo server** specifically designed for testing E
 
 ```bash
 # Clone the repository
-git clone https://github.com/[YOUR-USERNAME]/voice-bot-echo-exotel.git
+git clone https://github.com/Saurabhsharma209/voice-bot-echo-exotel.git
 cd voice-bot-echo-exotel
 
 # One-command setup
@@ -249,7 +249,7 @@ sudo apt update
 sudo apt install python3 python3-pip python3-venv
 
 # Clone and setup
-git clone https://github.com/[YOUR-USERNAME]/voice-bot-echo-exotel.git
+git clone https://github.com/Saurabhsharma209/voice-bot-echo-exotel.git
 cd voice-bot-echo-exotel
 ./setup.sh
 
@@ -287,7 +287,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/[YOUR-USERNAME]/voice-bot-echo-exotel/issues)
+- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/Saurabhsharma209/voice-bot-echo-exotel/issues)
 - **Exotel Documentation**: [Voice Streaming Guide](https://support.exotel.com/support/solutions/articles/3000108630)
 - **WebSockets Documentation**: [Python websockets library](https://websockets.readthedocs.io/)
 
