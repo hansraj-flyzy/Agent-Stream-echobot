@@ -54,6 +54,7 @@ Thumbs.db
 ngrok
 ngrok.exe
 ngrok.yml
+*.tgz
 
 # Temporary files
 *.tmp
