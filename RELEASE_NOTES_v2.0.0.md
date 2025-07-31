@@ -1,4 +1,4 @@
-# 🎉 Major Release: Enhanced Voice Bot Echo Server v2.0.0
+# 🎉 Voice Bot Echo Server v2.0.0
 
 **Transform your Exotel voice streaming testing from basic echo to intelligent conversational AI!**
 
