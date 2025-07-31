@@ -142,12 +142,13 @@ async def test_echo_server(uri):
             else:
                 print(f"⚠️  Some echo responses were missing.")
                 
-    except websockets.exceptions.ConnectionRefused:
-        print(f"❌ Connection refused. Is the server running at {uri}?")
-        print(f"💡 Try running: python3 simple_server.py")
+    except (websockets.exceptions.ConnectionClosed, ConnectionRefusedError, OSError) as e:
+        print(f"❌ Connection error: {e}")
+        print(f"💡 Is the server running? Try: python3 simple_server.py")
         return False
     except Exception as e:
         print(f"❌ Test failed: {e}")
+        print(f"Error type: {type(e)}")
         return False
     
     return True
