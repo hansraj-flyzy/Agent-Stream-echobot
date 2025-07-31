@@ -65,12 +65,31 @@ class VoiceSession:
             self.audio_buffer.append(media_data)
             logger.info(f"🎧 BUFFERING - Added chunk {media_data.get('chunk', 'N/A')} for {self.connection_id}")
             
-            # Reset silence timer
-            if self.silence_timer:
-                self.silence_timer.cancel()
-            
-            # Start new silence timer
-            self.silence_timer = asyncio.create_task(self.handle_silence())
+            # Choose echo mode based on configuration
+            if IMMEDIATE_ECHO_MODE:
+                # IMMEDIATE ECHO: For traditional testing and compatibility
+                asyncio.create_task(self.immediate_echo(media_data))
+            else:
+                # CONVERSATIONAL MODE: For AI-like behavior with silence detection
+                # Reset silence timer
+                if self.silence_timer:
+                    self.silence_timer.cancel()
+                
+                # Start new silence timer
+                self.silence_timer = asyncio.create_task(self.handle_silence())
+    
+    async def immediate_echo(self, media_data):
+        """Immediate echo for testing purposes"""
+        try:
+            echo_response = {
+                'event': 'media',
+                'stream_sid': self.stream_sid,
+                'media': media_data
+            }
+            await self.websocket.send(json.dumps(echo_response))
+            logger.info(f"🔊 IMMEDIATE ECHO - Sent chunk {media_data.get('chunk', 'N/A')} back to {self.connection_id}")
+        except Exception as e:
+            logger.error(f"❌ Echo error for {self.connection_id}: {e}")
     
     async def handle_silence(self):
         """Handle silence detection - start responding after silence threshold"""
@@ -148,6 +167,9 @@ class VoiceSession:
         }
         await self.websocket.send(json.dumps(clear_response))
         logger.info(f"✅ CLEAR ACKNOWLEDGED - Session reset for {self.connection_id}")
+
+# Configuration: Set to True for immediate echo (testing), False for conversational mode
+IMMEDIATE_ECHO_MODE = True  # Change to False for conversational AI behavior
 
 # Global session storage
 active_sessions = {}

@@ -197,9 +197,17 @@ Agent-Stream-echobot/
 
 ## 🔧 Advanced Configuration
 
-### **Conversation Parameters**
+### **Echo Mode Configuration**
 
-Edit `simple_server.py` to customize conversational behavior:
+Choose between immediate echo (traditional) or conversational AI mode:
+
+```python
+# In simple_server.py - Line ~153
+IMMEDIATE_ECHO_MODE = True   # Traditional immediate echo for testing
+IMMEDIATE_ECHO_MODE = False  # Conversational AI with silence detection
+```
+
+### **Conversation Parameters** (when IMMEDIATE_ECHO_MODE = False)
 
 ```python
 class VoiceSession:
