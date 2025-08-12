@@ -539,9 +539,9 @@ if __name__ == '__main__':
     log_thread.start()
     
     print("🚀 AgentStream Dashboard starting...")
-    print("📊 Dashboard URL: http://localhost:5001")
+    print("📊 Dashboard URL: http://localhost:8008")
     print("📈 Real-time monitoring with latency tracking active!")
     print("🎯 Features: Timestamps, Latency Analysis, Call Selection, Log Management")
     
     # Start the web server
-    socketio.run(app, host='0.0.0.0', port=5001, debug=False) 
+    socketio.run(app, host='0.0.0.0', port=8008, debug=False) 

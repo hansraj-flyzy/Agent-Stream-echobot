@@ -46,7 +46,7 @@ A **comprehensive, intelligent WebSocket echo server** with **conversational AI 
 
 ### **Prerequisites**
 - Python 3.8+ 
-- Ports 5000 (server) and 5001 (dashboard) available
+- Ports 8007 (server) and 8008 (dashboard) available
 - Internet connection
 
 ### **Installation**
@@ -67,16 +67,16 @@ chmod +x setup.sh && ./setup.sh
 ./start.sh
 
 # Or start individually:
-# Enhanced Echo Server (port 5000)
+# Enhanced Echo Server (port 8007)
 source venv/bin/activate && python3 simple_server.py &
 
-# AgentStream Dashboard (port 5001)  
+# AgentStream Dashboard (port 8008)  
 source venv/bin/activate && python3 dashboard.py &
 ```
 
 **Access Points:**
-- 🤖 **Echo Server**: `ws://localhost:5000`
-- 📊 **Dashboard**: `http://localhost:5001`
+- 🤖 **Echo Server**: `ws://localhost:8007`
+- 📊 **Dashboard**: `http://localhost:8008`
 
 ## 🌐 Public Access with ngrok
 
@@ -91,7 +91,7 @@ brew install ngrok  # macOS
 ngrok config add-authtoken YOUR_NGROK_TOKEN
 
 # Make your server public
-ngrok http 5000
+ngrok http 8007
 ```
 
 Use the `wss://` URL from ngrok in your Exotel configuration.
@@ -245,7 +245,7 @@ export DASHBOARD_PORT=8081
 
 ```bash
 # Check server status
-curl -f http://localhost:5000 || echo "Server not responding"
+curl -f http://localhost:8007 || echo "Server not responding"
 
 # Monitor conversation flow
 grep -E "(LISTENING|SPEAKING)" logs/voice_bot_echo.log | tail -10
@@ -258,7 +258,7 @@ grep "Connection ended" logs/voice_bot_echo.log | tail -5
 
 ```bash
 # Verify dashboard
-curl -f http://localhost:5001 || echo "Dashboard not accessible"
+curl -f http://localhost:8008 || echo "Dashboard not accessible"
 
 # Check log parsing
 grep "Error parsing" logs/* 
@@ -317,7 +317,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . .
-EXPOSE 5000 5001
+EXPOSE 8007 8008
 
 # Start both services
 CMD ["bash", "-c", "python3 simple_server.py & python3 dashboard.py & wait"]
@@ -340,8 +340,8 @@ nginx -t && systemctl reload nginx
 ```bash
 # Production configuration
 export LOG_LEVEL=INFO
-export ECHO_PORT=5000
-export DASHBOARD_PORT=5001
+export ECHO_PORT=8007
+export DASHBOARD_PORT=8008
 export SILENCE_THRESHOLD=1.5
 export ENABLE_DASHBOARD=true
 ```

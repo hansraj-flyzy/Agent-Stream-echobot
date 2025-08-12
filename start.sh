@@ -18,15 +18,15 @@ fi
 echo "🔄 Activating virtual environment..."
 source venv/bin/activate
 
-# Check if port 5000 is available
-if lsof -Pi :5000 -sTCP:LISTEN -t >/dev/null 2>&1; then
-    echo "⚠️  Port 5000 is already in use. Stopping existing processes..."
-    lsof -ti:5000 | xargs kill -9 2>/dev/null || true
+# Check if port 8007 is available
+if lsof -Pi :8007 -sTCP:LISTEN -t >/dev/null 2>&1; then
+    echo "⚠️  Port 8007 is already in use. Stopping existing processes..."
+    lsof -ti:8007 | xargs kill -9 2>/dev/null || true
     sleep 2
 fi
 
 # Start the server
-echo "🎯 Starting echo server on port 5000..."
+echo "🎯 Starting echo server on port 8007..."
 echo "📝 Logs will be displayed here and saved to logs/voice_bot_echo.log"
 echo "⏹️  Press Ctrl+C to stop the server"
 echo ""

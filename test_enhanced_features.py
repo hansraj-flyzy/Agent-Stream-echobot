@@ -12,7 +12,7 @@ import time
 
 async def test_enhanced_features():
     """Test all enhanced features with proper acknowledgments"""
-    uri = 'ws://localhost:5000'
+    uri = 'ws://localhost:8007'
     
     print("🧪 Enhanced Voice Bot Echo Server Test")
     print("=" * 50)
@@ -153,7 +153,7 @@ async def test_enhanced_features():
             print("   ✅ MEDIA events sent (with echo responses)")
             print("   ✅ STOP event sent")
             print("\n🎉 All enhanced features tested successfully!")
-            print("📊 Check the dashboard at: http://localhost:5001")
+            print("📊 Check the dashboard at: http://localhost:8008")
             print("🔍 Features to test in dashboard:")
             print("   • Call selection and event details")
             print("   • Latency metrics and timing")

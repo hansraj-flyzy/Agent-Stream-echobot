@@ -7,7 +7,7 @@ This script tests the WebSocket echo server by sending sample
 Exotel voice streaming events and verifying responses.
 
 Usage:
-    python3 test_connection.py [ws://localhost:5000]
+    python3 test_connection.py [ws://localhost:8007]
 """
 
 import asyncio
@@ -155,7 +155,7 @@ async def test_echo_server(uri):
 
 async def main():
     # Get WebSocket URI from command line or use default
-    uri = sys.argv[1] if len(sys.argv) > 1 else "ws://localhost:5000"
+    uri = sys.argv[1] if len(sys.argv) > 1 else "ws://localhost:8007"
     
     print("🧪 Voice Bot Echo Server Test")
     print("=" * 40)

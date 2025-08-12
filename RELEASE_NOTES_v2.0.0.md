@@ -67,8 +67,8 @@ chmod +x setup.sh && ./setup.sh
 ```
 
 **Access Points:**
-- 🤖 **Enhanced Echo Server**: ws://localhost:5000
-- 📊 **AgentStream Dashboard**: http://localhost:5001
+- 🤖 **Enhanced Echo Server**: ws://localhost:8007
+- 📊 **AgentStream Dashboard**: http://localhost:8008
 
 ## 📁 **New Files Added**
 
@@ -82,7 +82,7 @@ chmod +x setup.sh && ./setup.sh
 
 - **Echo Behavior**: No longer immediate echo - now uses conversational flow
 - **Dependencies**: Added Flask, Flask-SocketIO, Eventlet for dashboard
-- **Ports**: Now uses 5000 (server) + 5001 (dashboard)
+- **Ports**: Now uses 8007 (server) + 8008 (dashboard)
 
 ## 🛠️ **Migration from v1.x**
 

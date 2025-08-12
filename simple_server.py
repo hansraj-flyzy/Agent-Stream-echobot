@@ -355,7 +355,7 @@ async def main():
     """
     Main server function that starts the WebSocket server.
     """
-    port = 5000
+    port = 8007
     host = "0.0.0.0"
     
     logger.info(f"🚀 Starting Voice Bot Echo Server...")
